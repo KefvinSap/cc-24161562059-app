@@ -1,8 +1,8 @@
 <?php
 // Buku tamu (aplikasi acuan P5 sampai Tugas Besar): PHP + PDO + PostgreSQL.
 // Konfigurasi dari environment variable DATABASE_URL (P5 slide 24).
-const PEMILIK = "<NIM> - <Nama>";   // ganti dengan NIM dan nama sendiri
-const VERSI = "1.0";               // dinaikkan saat rolling update (P8)
+const PEMILIK = "24161562059 - Kefvin Saprilianto";   // ganti dengan NIM dan nama sendiri
+const VERSI = "1.1";               // dinaikkan saat rolling update (P8)
 
 // DATABASE_URL = postgresql://user:pass@host:5432/db?sslmode=require
 function db(int $timeout = 5): PDO {
@@ -18,7 +18,7 @@ function db(int $timeout = 5): PDO {
     $pdo->exec("CREATE TABLE IF NOT EXISTS tamu (id serial PRIMARY KEY,
                 nama text NOT NULL, waktu timestamptz DEFAULT now())");
     return $pdo;
-}
+} 
 
 function json(array $data, int $code = 200): void {
     http_response_code($code);
